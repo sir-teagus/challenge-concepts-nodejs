@@ -97,11 +97,9 @@ app.post(
       return response.status(400).json({ error: "ID not found." });
     }
 
-    const repository = repositories[repositoryIndex];
+    repositories[repositoryIndex].likes += 1;
 
-    repository.likes++;
-
-    return response.json(repository);
+    return response.json(repositories[repositoryIndex]);
   }
 );
 
